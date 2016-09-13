@@ -5,8 +5,8 @@ RUN curl -o /tmp/epel.rpm https://www.mirrorservice.org/sites/dl.fedoraproject.o
     && rm -f /tmp/epel.rpm \
     && yum install -y ansible
 
-ONBUILD COPY ./example /ansible-role
-ONBUILD COPY ./* /ansible-role/
+ONBUILD COPY ./example /ansible-role/
+ONBUILD COPY ./ /ansible-role/
 
 ONBUILD WORKDIR /ansible-role
 ONBUILD ENTRYPOINT [ "ansible-playbook -i example/inventory example/example.yml" ]
