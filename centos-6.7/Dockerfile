@@ -10,7 +10,8 @@ ONBUILD COPY ./example /ansible/
 ONBUILD COPY ./ /ansible/roles/${ROLE_NAME}
 
 ONBUILD WORKDIR /ansible
-ONBUILD ENTRYPOINT [ "ansible-playbook -i inventory main.yml" ]
+ONBUILD ENTRYPOINT [ "ansible-playbook" ]
+ONBUILD CMD [ "-i", "inventory", "main.yml" ]
 
 ENTRYPOINT [ "ansible" ]
 CMD [ "-v" ]
