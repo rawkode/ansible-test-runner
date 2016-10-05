@@ -5,6 +5,9 @@ RUN curl -o /tmp/epel.rpm https://www.mirrorservice.org/sites/dl.fedoraproject.o
     && rm -f /tmp/epel.rpm \
     && yum install -y ansible
 
+# Allow manual test runners a nice alias for running their playbook
+RUN echo "alias 'run'='ansible-playbook -i inventory main.yml'" >> /root/.bashrc
+
 ONBUILD ARG ROLE_NAME
 ONBUILD COPY ./example /ansible/
 ONBUILD COPY ./ /ansible/roles/${ROLE_NAME}
