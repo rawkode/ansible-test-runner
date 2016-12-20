@@ -1,6 +1,6 @@
 FROM centos:7.3.1611
 
-RUN curl -o /tmp/epel.rpm https://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/7/x86_64/epel-release-7-3.noarch.rpm \
+RUN curl -o /tmp/epel.rpm https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
     && rpm -ivh /tmp/epel.rpm \
     && rm -f /tmp/epel.rpm \
     && yum install -y ansible
