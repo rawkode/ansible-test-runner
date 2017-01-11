@@ -1,5 +1,6 @@
 FROM centos:7.3.1611
 
+ENV ANSIBLE_HOST_KEY_CHECKING=False
 RUN curl -o /tmp/epel.rpm https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
     && rpm -ivh /tmp/epel.rpm \
     && rm -f /tmp/epel.rpm \
